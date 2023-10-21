@@ -1,0 +1,89 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+class CarService {
+public:
+    virtual void bookService() = 0;
+};
+
+class CarFueling : public CarService {
+private:
+    std::string time;
+    std::string location;
+    double amount;
+
+public:
+    void getInput() {
+        std::cout << "Enter time: ";
+        std::cin >> time;
+        std::cout << "Enter location: ";
+        std::cin >> location;
+        std::cout << "Enter amount of fuel: ";
+        std::cin >> amount;
+    }
+
+    void bookService() override {
+        // Add code for scheduling and booking fueling service
+        std::cout << "Fueling service booked for " << time << " at " << location << " for " << amount << " liters." << std::endl;
+    }
+};
+
+class CarModifications : public CarService {
+private:
+    std::string modificationType;
+
+public:
+    void getInput() {
+        std::cout << "Enter modification type: ";
+        std::cin >> modificationType;
+    }
+
+    void bookService() override {
+        // Add code for scheduling and booking modifications service
+        std::cout << "Modifications booked: " << modificationType << std::endl;
+    }
+};
+
+class InterCleaningAndService : public CarService {
+public:
+    void bookService() override {
+        // Add code for scheduling and booking interior cleaning and service
+        std::cout << "Interior cleaning and service booked." << std::endl;
+    }
+};
+
+class BuyingSelling {
+public:
+    void buyCar() {
+        // Add code for buying a car
+        std::cout << "Car bought." << std::endl;
+    }
+
+    void sellCar() {
+        // Add code for selling a car
+        std::cout << "Car sold." << std::endl;
+    }
+};
+
+int main() {
+    CarFueling fueling;
+    std::cout << "Enter fueling details: " << std::endl;
+    fueling.getInput();
+    fueling.bookService();
+
+    CarModifications modifications;
+    std::cout << "Enter modification details: " << std::endl;
+    modifications.getInput();
+    modifications.bookService();
+
+    InterCleaningAndService cleaning;
+    cleaning.bookService();
+
+    BuyingSelling transaction;
+    transaction.buyCar();
+    transaction.sellCar();
+
+    return 0;
+}
+
