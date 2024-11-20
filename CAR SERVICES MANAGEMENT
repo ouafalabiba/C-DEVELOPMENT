@@ -57,7 +57,7 @@ class BuyingSelling {
 public:
     void buyCar() {
         // Add code for buying a car
-        std::cout << "Car bought." << std::endl;
+        std::cout << "Car bought. ie" << std::endl;
     }
 
     void sellCar() {
